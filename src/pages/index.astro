@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 <Layout>
   <div class="page-layout" id="top">
     <aside class="profile" aria-label="プロフィール">
-      <div class="monogram" aria-hidden="true">{profile.initials}</div>
+      <img class="profile-photo" src={`${base}profile.png`} alt={`${profile.name}のプロフィール写真`} width="781" height="1038" fetchpriority="high" />
       <h1>{profile.name}</h1>
       <p class="name-ja">{profile.nameJa}</p>
       <p class="role">{profile.role}</p>
@@ -47,10 +47,10 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
             <div><dt>開催地</dt><dd>{talk.location}</dd></div>
           </dl>
           {talk.links.length > 0 && <div class="paper-links">{talk.links.map(link => <a href={link.url}>{link.label} ↗</a>)}</div>}
-        </li>)}</ol> : <p class="empty-state">公開できる学会発表を、こちらに掲載します。</p>}
+        </li>)}</ol> : <p class="empty-state">学会発表を、こちらに掲載します。</p>}
       </section>
       <section id="education"><div class="section-heading"><h2>{content.education.title}</h2><span>経歴</span></div><div class="prose education"><Education /></div>{profile.cvFile && <a class="cv-link" href={`${base}${profile.cvFile}`}>Curriculum Vitae (PDF) ↗</a>}</section>
-      <section id="contact"><div class="section-heading"><h2>Contact</h2><span>連絡先</span></div><p class="contact-copy">研究に関するご連絡は、メールでお気軽にどうぞ。</p><EmailReveal /></section>
+      <section id="contact"><div class="section-heading"><h2>Contact</h2><span>連絡先</span></div><EmailReveal /></section>
     </main>
   </div>
 </Layout>
